@@ -2,10 +2,11 @@ import tkinter as tk
 import time
 import random
 import string
+from tkinter import messagebox
+
 
 ## Constant 
 TIME_REMAINING = 0
-
 
 
 window = tk.Tk()
@@ -36,9 +37,16 @@ def start_game():
     para_canvas.create_window(200, 100, window=para_text)
 
     ## Start timer
-    TIME_REMAINING = 60
+    TIME_REMAINING = 6
     update_timer()
-    
+       
+
+
+def count_word():
+    input_text = type_text.get("1.0", tk.END).strip()
+    words = input_text.replace(" ", "")
+    num_words = len(words)
+    messagebox.showinfo("Popup", f"Result: {num_words} Words Per Minute")
 
 def update_timer():
     global TIME_REMAINING
@@ -46,12 +54,9 @@ def update_timer():
         TIME_REMAINING -=1
         time_label.config(text=f"Time remaining: {TIME_REMAINING} seconds")
         window.after(1000, update_timer)
-
-
-        
-
-
-
+    else:
+        time_label.config(text='Time is up!')
+        count_word()
 
 
 
