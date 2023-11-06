@@ -37,7 +37,7 @@ def start_game():
     para_canvas.create_window(200, 100, window=para_text)
 
     ## Start timer
-    TIME_REMAINING = 6
+    TIME_REMAINING = 61
     update_timer()
        
 
@@ -94,4 +94,4 @@ start_button.grid(row=4, column=1, pady=25)
 time_label.grid(row=2, column=1)
 
 
-window.mainloop()
+window.mainloop()   
